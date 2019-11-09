@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스 활용4</title>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+</body>
+<script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	// 겹쳐지는 영역에 대한 설정
+	context.globalCompositeOperation = "destination-atop";
+
+	context.fillStyle = "red";
+	context.fillRect(0,0,100,100);
+	context.fillStyle = "rgba(128, 255, 255, 1.0)";
+	context.fillRect(50,50,100,100);
+
+	context.globalCompositeOperation = "destination-atop";
+	
+	context.fillStyle = "#990000";
+	context.fillRect(0, 250, 300, 100);
+
+	context.fillStyle = "#AAAAFF";
+	context.font = "bold 80px verdana, sans-serif"
+	
+	context.fillText("TEST", 10, 280);
+
+</script>
+</html>

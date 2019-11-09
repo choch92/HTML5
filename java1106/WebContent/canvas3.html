@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스 활용3</title>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400">
+	</canvas>
+</body>
+<script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	// 메모리에 그림을 그리기 시작
+	context.beginPath();
+	// true는 시계방향, false는 반시계방향
+	context.arc(120, 100, 100, 0, Math.PI*2, false);
+	// 실제 그림을 그려달라고 요청
+	//context.stroke();
+	
+	// clip은 출력 영역을 설정
+	//context.clip();
+	
+	// 이미지 출력
+	var image = new Image();
+	image.src = "./images/7.jpeg";
+	image.addEventListener('load', function(e){
+		context.drawImage(image, 0, 0, 300, 300);
+		// 선두께 조정
+		context.lineWidth = 10;
+		// 선 색 조정
+		context.strokeStyle = "rgba(255, 0, 0, 1)";
+		// 그림자 설정
+		context.shadowColor = "rgba(255, 0, 0, 1)";
+		context.shadowBlur = 15;
+		context.shadowOffsetX = 5;
+		context.shadowOffsetY = 5;
+		context.stroke();
+		
+		context.strokeStyle = "rgba(128, 128, 128, 1)";
+		context.font = "bold 45px verdana, sans-serif";
+		context.strokeText("CANVAS", 30, 250);
+
+	});
+
+</script>
+</html>
